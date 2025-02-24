@@ -36,7 +36,7 @@ function MemoryCard({ memoryData }) {
 
         {/* Case 4: Free */}
         <MetricItem
-          title='RAM utilisé'
+          title='RAM libre'
           value={memoryData.total ? formatBytes(memoryData.total - memoryData.used) : '--'}
         />
       </div>

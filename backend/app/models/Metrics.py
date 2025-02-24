@@ -1,5 +1,5 @@
 from sqlmodel import Field, SQLModel
-from datetime import datetime as datetime
+from datetime import datetime
 
 class Metrics(SQLModel, table=True):
     """Represents system metrics stored in a database."""

@@ -1,0 +1,26 @@
+services:
+  api:
+    build: ./backend
+    container_name: fastapi_metrics
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/app:/code/app
+    # Partagez l'espace de PID du host
+    pid: host
+    cap_add:
+      - SYS_PTRACE
+    environment:
+      - TZ=Europe/Paris
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    stdin_open: true
+    tty: true
